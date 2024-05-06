@@ -1,0 +1,27 @@
+version: '2'
+services:
+
+  server_nette32:
+    container_name: nette_32
+#    image: php:8.3-apache
+    build:
+      context: ./
+    volumes:
+      - ./../:/var/www/html
+    ports:
+      - "80:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - redis
+
+  redis:
+    container_name: 'redis.nette32'
+    image: redis:6.2-alpine
+    ports:
+      - '6379:6379'
+    volumes:
+      - redisData:/data
+
+volumes:
+  redisData:
