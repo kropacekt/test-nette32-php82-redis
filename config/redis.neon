@@ -1,0 +1,22 @@
+### Konfigurace Redisu a služeb využívajících Redis.
+
+# Registrace rozšíření kdyby/redis.
+extensions:
+    redis: Kdyby\Redis\DI\RedisExtension
+
+# Konfigurace rozšíření kdyby/redis
+redis:
+    host: %redis-config.host%
+    port: 6379
+    database: %redis-config.db.default%
+
+    # Zapnutí Redisu pro části aplikace (zatím vše necháme deaktivované).
+    journal: true
+    storage: {locks: false}
+    session: false
+
+# Ručně zaregistrujeme cache storage Redisu.
+services:
+    redisCacheStorage:
+    	class: Kdyby\Redis\RedisStorage
+    	autowired: false

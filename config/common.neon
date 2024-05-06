@@ -1,5 +1,11 @@
 parameters:
+    redis-config:
+        host: redis.nette32
+        db:
+            default: 0
 
+includes:
+    - redis.neon
 
 application:
 	errorPresenter:
