@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		- '#Result of function usleep \(void\) is used.#'
+		- '#Constant TEMP_DIR not found.#'
+		- '#Unsafe usage of new static\(\).#'
+
+	reportUnmatchedIgnoredErrors: TRUE
